@@ -9,7 +9,7 @@ body,
     text-align: right;
     padding:50px;;
     color: white;
-    margin-right: 100px;
+
 }
 .lead{
     line-height:40px;;
@@ -31,7 +31,17 @@ input[placeholder]{
     font-style:italic;
 }
 
-label{
+.label{
     margin:0px;
+    text-align: center;
 }
 
+.search-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uv-index{
+    font-weight: 400;
+}
