@@ -4,18 +4,14 @@ var tempDisplay = document.querySelector(".temp")
 var dateDisplay1 = document.querySelector(".todays-date")
 var windDisplay = document.querySelector(".wind")
 var humidityDisplay = document.querySelector(".humidity")
+var city = document.querySelector("#locationSearch")
 var uvIndexDisplay = document.querySelector(".uv-index")
 var iconDisplay1 = document.querySelector(".todays-icon")
 var APIKey = "24877683e160be4d09b95f62d7d4489b"
 
-function clearField(){
-  var citySearch = document.querySelector("#locationSearch")
-  citySearch.value = ""
-}
+
 
 function getWeather(){
-  var city = document.querySelector("#locationSearch")
-
   
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city.value + "&units=imperial&appid=" + APIKey 
   
@@ -24,7 +20,6 @@ function getWeather(){
       return response.json();
     })
     .then(function (data) {
-      //console.log(data)
       var locationDisplayValue = data.name;
       var dateDisplay1Unix = data.dt
       var dateDisplay1Value = moment.unix(dateDisplay1Unix).format(" MMM Do, YYYY" );
@@ -42,6 +37,7 @@ function getWeather(){
       latitude = data.coord.lat
 
       UVIndex(longitude,latitude)
+      
     })
 }
 
@@ -54,8 +50,6 @@ function UVIndex(longitude,latitude){
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
-      
       uvIndexDisplay.textContent = data.current.uvi
 
       if(data.current.uvi <= 2){
@@ -65,12 +59,34 @@ function UVIndex(longitude,latitude){
       } else (uvIndexDisplay.style.color = "orange")
 
       
-})
+})}
+
+
+function fiveDayForecast () {
+  var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city.value + "&appid=" + APIKey 
+  
+  fetch(forecastQueryURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data)
+    for (i=0; i<6; i++){
+
+    }
+}
+)}
+
+function clearField(){
+  var citySearch = document.querySelector("#locationSearch")
+  citySearch.value = ""
 }
 
 
 searchButton.addEventListener("click", function(){
   getWeather();
+  fiveDayForecast();
   clearField();
+ 
     
 })
