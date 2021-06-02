@@ -191,9 +191,17 @@ function renderInputs(){
  }
 }
 
-function goToLastSearch(){
+function goToLastSearch(event){
+  var listItems = event.target;
+  if (event.target.matches("li")){
+    city.value= listItems.textContent;
+    getWeather(city.value);
+    fiveDayForecast(city.value)
+  }
   
 }
+
+listEl.addEventListener("click",goToLastSearch)
 
 searchButton.addEventListener("click", function(){
   getWeather();
