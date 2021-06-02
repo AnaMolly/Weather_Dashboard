@@ -45,3 +45,18 @@ input[placeholder]{
 .uv-index{
     font-weight: 400;
 }
+
+.card-header{
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+}
+.card-text{
+    text-align: center;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

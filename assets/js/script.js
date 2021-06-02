@@ -6,10 +6,8 @@ var windDisplay = document.querySelector(".wind")
 var humidityDisplay = document.querySelector(".humidity")
 var city = document.querySelector("#locationSearch")
 var uvIndexDisplay = document.querySelector(".uv-index")
-var iconDisplay1 = document.querySelector(".todays-icon")
+var iconDisplay1 = document.getElementById("todays-icon")
 var APIKey = "24877683e160be4d09b95f62d7d4489b"
-
-
 
 function getWeather(){
   
@@ -26,12 +24,16 @@ function getWeather(){
       var tempDislayValue = Math.floor((data.main.temp - 32) * 0.5556)
       var windDisplayValue = Math.floor(data.wind.speed * 1.6)
       var humidityDisplayValue = data.main.humidity
+      var iconDisplayValue = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+      
       
       locationDisplay.textContent = locationDisplayValue
       dateDisplay1.textContent = dateDisplay1Value
       tempDisplay.textContent = " " + tempDislayValue + "°C"
       windDisplay.textContent = windDisplayValue + " " + "km/h"
       humidityDisplay.textContent = humidityDisplayValue + "%"
+      iconDisplay1.setAttribute("src",iconDisplayValue)
+    
       
       longitude = data.coord.lon
       latitude = data.coord.lat
@@ -63,7 +65,7 @@ function UVIndex(longitude,latitude){
 
 
 function fiveDayForecast () {
-  var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city.value + "&appid=" + APIKey 
+  var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city.value + "&units=imperial&appid=" + APIKey 
   
   fetch(forecastQueryURL)
   .then(function (response) {
@@ -71,11 +73,78 @@ function fiveDayForecast () {
   })
   .then(function (data) {
     console.log(data)
-    for (i=0; i<6; i++){
+    var forecastDates = []
+    var forecastTemp =[]
+    var forecastWind = []
+    var forecastHumidity= []
+   
+    
+    for (i=0; i<=39; i+=7){
+      var dates = moment.unix(data.list[i].dt).format("MMM Do, YYYY" );
+      forecastDates.push(dates)
+
+      var temps =  Math.floor((data.list[i].main.temp - 32) * 0.5556) 
+      forecastTemp.push(temps)
+
+      var winds= Math.floor(data.list[i].wind.speed * 1.6)
+      forecastWind.push(winds)
+
+      var humid=data.list[i].main.humidity
+      forecastHumidity.push(humid)
 
     }
+    
+
+    var forDay1= document.getElementById("forecastDate1")
+    var forDay2= document.getElementById("forecastDate2")
+    var forDay3= document.getElementById("forecastDate3")
+    var forDay4= document.getElementById("forecastDate4")
+    var forDay5= document.getElementById("forecastDate5")
+
+    var forTemp1= document.getElementById("forecastTemp1")
+    var forTemp2= document.getElementById("forecastTemp2")
+    var forTemp3= document.getElementById("forecastTemp3")
+    var forTemp4= document.getElementById("forecastTemp4")
+    var forTemp5= document.getElementById("forecastTemp5")
+
+    var forWind1= document.getElementById("forecastWind1")
+    var forWind2= document.getElementById("forecastWind2")
+    var forWind3= document.getElementById("forecastWind3")
+    var forWind4= document.getElementById("forecastWind4")
+    var forWind5= document.getElementById("forecastWind5")
+
+    var forHumidity1= document.getElementById("forecastHumidity1")
+    var forHumidity2= document.getElementById("forecastHumidity2")
+    var forHumidity3= document.getElementById("forecastHumidity3")
+    var forHumidity4= document.getElementById("forecastHumidity4")
+    var forHumidity5= document.getElementById("forecastHumidity5")
+
+    forDay1.innerHTML = forecastDates[1]
+    forDay2.innerHTML = forecastDates[2]
+    forDay3.innerHTML = forecastDates[3]
+    forDay4.innerHTML = forecastDates[4]
+    forDay5.innerHTML = forecastDates[5]
+
+    forTemp1.innerHTML = forecastTemp[1] + "°C"
+    forTemp2.innerHTML = forecastTemp[2] + "°C"
+    forTemp3.innerHTML = forecastTemp[3] + "°C"
+    forTemp4.innerHTML = forecastTemp[4] + "°C"
+    forTemp5.innerHTML = forecastTemp[5] + "°C"
+
+    forWind1.innerHTML = forecastWind[1] + " " + "km/h"
+    forWind2.innerHTML = forecastWind[2] + " " + "km/h"
+    forWind3.innerHTML = forecastWind[3] + " " + "km/h"
+    forWind4.innerHTML = forecastWind[4] + " " + "km/h"
+    forWind5.innerHTML = forecastWind[5] + " " + "km/h"
+
+    forHumidity1.innerHTML = forecastHumidity[1] + "%"
+    forHumidity2.innerHTML = forecastHumidity[2] + "%"
+    forHumidity3.innerHTML = forecastHumidity[3] + "%"
+    forHumidity4.innerHTML = forecastHumidity[4] + "%"
+    forHumidity5.innerHTML = forecastHumidity[5] + "%"
 }
 )}
+
 
 function clearField(){
   var citySearch = document.querySelector("#locationSearch")

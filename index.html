@@ -28,61 +28,61 @@
         </div>
         </div>
         <div class="card" style="padding:10px; margin:50px 200px 20px 200px ; background-color:rgba(81, 185, 226, 0.85);;">
-            <div class="card-header todays-date" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
+            <div class="card-header todays-date" style="color:white; font-weight:100; font-size: 20px; align-items: center;"> Date: </div>
             <div class="card-body todays-weather">
-              <h5 class="card-title location" style="color:white; font-weight:100; font-size: 30px;"></h5>
-              <div id="todays-icon"></div>
+              <h5 class="card-title location" style="color:white; font-weight:300; font-size: 35px;"></h5>
+              <img  id="todays-icon" src="" alt="">
               <p class="card-text" style="color:white; font-weight:100; font-size: 20px;">Temperature:<span class="temp"> </span></p>
               <p class="card-text" style="color:white; font-weight:100; font-size: 20px;">Wind: <span class="wind"> </span></p>
               <p class="card-text" style="color:white; font-weight:100; font-size: 20px;">Humidity: <span class="humidity"> </span></p>
               <p class="card-text" style="color:white; font-weight:100; font-size: 20px;">UV Index: <span class="uv-index"> </span></p>
             </div>
         </div>
-        <p class="lead"  style="font-weight: 300; font-size: 25px; color:white; margin-left:30px; padding:10px; text-align: center;">Five Day Forecast:</p>
+        <p class="lead"  style="font-weight: 300; font-size: 40px; color:white; margin-left:30px; margin-top:30px; padding:10px; text-align: center;">Five Day Forecast:</p>
         <div class="row justify-content-center" style="padding-bottom:40px; margin:0px">
             <div class="card" style="padding: 7px; margin: 10px; background-color:rgba(81, 185, 226, 0.85);">
-                <div class="card-header" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
+                <div class="card-header" id="forecastDate1" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
                 <div class="card-body">
                 <div class="card-title weatherIconFor" style="color:white; font-weight:100; font-size: 30px;">[weather icon]</div>
-                <p class="card-text tempFor" style="color:white; font-weight:100; font-size: 15px;">Temperature:</p>
-                <p class="card-text windFor" style="color:white; font-weight:100; font-size: 15px;">Wind:</p>
-                <p class="card-text humidityFor" style="color:white; font-weight:100; font-size: 15px;">Humidity:</p>
+                <p class="card-text"  style="color:white; font-weight:100; font-size: 15px;">Temperature: <span id="forecastTemp1"></span> </p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Wind: <span id="forecastWind1"></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Humidity: <span id="forecastHumidity1"></span></p>
                 </div>    
             </div>
             <div class="card" style="padding: 7px; margin:10px; background-color:rgba(81, 185, 226, 0.85);">
-                <div class="card-header" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
+                <div class="card-header"  id="forecastDate2" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
                 <div class="card-body">
                 <div class="card-title weatherIconFor" style="color:white; font-weight:100; font-size: 30px;">[weather icon]</div>
-                <p class="card-text tempFor" style="color:white; font-weight:100; font-size: 15px;">Temperature:</p>
-                <p class="card-text windFor" style="color:white; font-weight:100; font-size: 15px;">Wind:</p>
-                <p class="card-tex humidityFor" style="color:white; font-weight:100; font-size: 15px;">Humidity:</p>
+                <p class="card-text"  style="color:white; font-weight:100; font-size: 15px;">Temperature: <span id="forecastTemp2"></span></p>
+                <p class="card-text windFor" style="color:white; font-weight:100; font-size: 15px;">Wind: <span id="forecastWind2"></span></p>
+                <p class="card-text humidityFor" style="color:white; font-weight:100; font-size: 15px;">Humidity: <span id="forecastHumidity2"></span></p>
                 </div>    
             </div>
             <div class="card" style="padding: 7px; margin:10px; background-color:rgba(81, 185, 226, 0.85);">
-                <div class="card-header" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
+                <div class="card-header" id="forecastDate3" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
                 <div class="card-body">
                 <div class="card-title weatherIconFor" style="color:white; font-weight:100; font-size: 30px;">[weather icon]</div>
-                <p class="card-text tempFor" style="color:white; font-weight:100; font-size: 15px;">Temperature:</p>
-                <p class="card-text windFor" style="color:white; font-weight:100; font-size: 15px;">Wind:</p>
-                <p class="card-text humidityFor" style="color:white; font-weight:100; font-size: 15px;">Humidity:</p>
+                <p class="card-text"  style="color:white; font-weight:100; font-size: 15px;">Temperature: <span id="forecastTemp3"></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Wind: <span id="forecastWind3"></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Humidity: <span id="forecastHumidity3"></span></p>
                 </div>    
             </div>
             <div class="card" style="padding: 7px; margin:10px; background-color:rgba(81, 185, 226, 0.85);">
-                <div class="card-header" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
+                <div class="card-header" id="forecastDate4" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
                 <div class="card-body">
                 <div class="card-title weatherIconFor" style="color:white; font-weight:100; font-size: 30px;">[weather icon]</div>
-                <p class="card-text tempFor" style="color:white; font-weight:100; font-size: 15px;">Temperature:</p>
-                <p class="card-text windFor" style="color:white; font-weight:100; font-size: 15px;">Wind:</p>
-                <p class="card-texthumidityFor" style="color:white; font-weight:100; font-size: 15px;">Humidity:</p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Temperature: <span id="forecastTemp4" ></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Wind: <span id="forecastWind4"></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Humidity: <span id="forecastHumidity4"></span></p>
                 </div>    
             </div>
             <div class="card" style="padding: 7px; margin:10px; background-color:rgba(81, 185, 226, 0.85);">
-                <div class="card-header" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
+                <div class="card-header" id="forecastDate5" style="color:white; font-weight:100; font-size: 20px;"> Date: </div>
                 <div class="card-body">
                 <div class="card-title weatherIconFor" style="color:white; font-weight:100; font-size: 30px;">[weather icon]</div>
-                <p class="card-text tempFor" style="color:white; font-weight:100; font-size: 15px;">Temperature:</p>
-                <p class="card-text windFor" style="color:white; font-weight:100; font-size: 15px;">Wind:</p>
-                <p class="card-text humidityFor" style="color:white; font-weight:100; font-size: 15px;">Humidity:</p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Temperature: <span id="forecastTemp5"></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Wind: <span id="forecastWind5"></span></p>
+                <p class="card-text" style="color:white; font-weight:100; font-size: 15px;">Humidity: <span id="forecastHumidity5"></span></p>
                 </div>    
             </div>
         </div>
