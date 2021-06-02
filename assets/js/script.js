@@ -41,6 +41,9 @@ function getWeather(){
       UVIndex(longitude,latitude)
       
     })
+    .catch(err => {
+      alert("Invalid town, city or country. Please try again.");
+  });
 }
 
 function UVIndex(longitude,latitude){
@@ -77,8 +80,9 @@ function fiveDayForecast () {
     var forecastTemp =[]
     var forecastWind = []
     var forecastHumidity= []
+    var forecastIcons=[]
    
-    
+    console.log(forecastIcons)
     for (i=0; i<=39; i+=7){
       var dates = moment.unix(data.list[i].dt).format("MMM Do, YYYY" );
       forecastDates.push(dates)
@@ -92,6 +96,9 @@ function fiveDayForecast () {
       var humid=data.list[i].main.humidity
       forecastHumidity.push(humid)
 
+      var icons="https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png"
+      console.log(icons)
+      forecastIcons.push(icons)
     }
     
 
@@ -100,6 +107,12 @@ function fiveDayForecast () {
     var forDay3= document.getElementById("forecastDate3")
     var forDay4= document.getElementById("forecastDate4")
     var forDay5= document.getElementById("forecastDate5")
+
+    var forIcon1= document.getElementById("weatherIconFor1")
+    var forIcon2= document.getElementById("weatherIconFor2")
+    var forIcon3= document.getElementById("weatherIconFor3")
+    var forIcon4= document.getElementById("weatherIconFor4")
+    var forIcon5= document.getElementById("weatherIconFor5")
 
     var forTemp1= document.getElementById("forecastTemp1")
     var forTemp2= document.getElementById("forecastTemp2")
@@ -125,24 +138,30 @@ function fiveDayForecast () {
     forDay4.innerHTML = forecastDates[4]
     forDay5.innerHTML = forecastDates[5]
 
-    forTemp1.innerHTML = forecastTemp[1] + "°C"
-    forTemp2.innerHTML = forecastTemp[2] + "°C"
-    forTemp3.innerHTML = forecastTemp[3] + "°C"
-    forTemp4.innerHTML = forecastTemp[4] + "°C"
-    forTemp5.innerHTML = forecastTemp[5] + "°C"
+    forTemp1.innerHTML = forecastTemp[0] + "°C"
+    forTemp2.innerHTML = forecastTemp[1] + "°C"
+    forTemp3.innerHTML = forecastTemp[2] + "°C"
+    forTemp4.innerHTML = forecastTemp[3] + "°C"
+    forTemp5.innerHTML = forecastTemp[4] + "°C"
 
-    forWind1.innerHTML = forecastWind[1] + " " + "km/h"
-    forWind2.innerHTML = forecastWind[2] + " " + "km/h"
-    forWind3.innerHTML = forecastWind[3] + " " + "km/h"
-    forWind4.innerHTML = forecastWind[4] + " " + "km/h"
-    forWind5.innerHTML = forecastWind[5] + " " + "km/h"
+    forWind1.innerHTML = forecastWind[0] + " " + "km/h"
+    forWind2.innerHTML = forecastWind[1] + " " + "km/h"
+    forWind3.innerHTML = forecastWind[2] + " " + "km/h"
+    forWind4.innerHTML = forecastWind[3] + " " + "km/h"
+    forWind5.innerHTML = forecastWind[4] + " " + "km/h"
 
-    forHumidity1.innerHTML = forecastHumidity[1] + "%"
-    forHumidity2.innerHTML = forecastHumidity[2] + "%"
-    forHumidity3.innerHTML = forecastHumidity[3] + "%"
-    forHumidity4.innerHTML = forecastHumidity[4] + "%"
-    forHumidity5.innerHTML = forecastHumidity[5] + "%"
-}
+    forHumidity1.innerHTML = forecastHumidity[0] + "%"
+    forHumidity2.innerHTML = forecastHumidity[1] + "%"
+    forHumidity3.innerHTML = forecastHumidity[2] + "%"
+    forHumidity4.innerHTML = forecastHumidity[3] + "%"
+    forHumidity5.innerHTML = forecastHumidity[4] + "%"
+
+    forIcon1.setAttribute("src", forecastIcons[0])
+    forIcon2.setAttribute("src", forecastIcons[1])
+    forIcon3.setAttribute("src", forecastIcons[2])
+    forIcon4.setAttribute("src", forecastIcons[3])
+    forIcon5.setAttribute("src", forecastIcons[4])
+  }
 )}
 
 
