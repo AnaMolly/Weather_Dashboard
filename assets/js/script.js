@@ -6,7 +6,9 @@ var windDisplay = document.querySelector(".wind")
 var humidityDisplay = document.querySelector(".humidity")
 var city = document.querySelector("#locationSearch")
 var uvIndexDisplay = document.querySelector(".uv-index")
+var searchBarDisplay = document.querySelector(".searchbar")
 var iconDisplay1 = document.getElementById("todays-icon")
+var listEl = document.querySelector(".pastsearches")
 var APIKey = "24877683e160be4d09b95f62d7d4489b"
 
 function getWeather(){
@@ -82,7 +84,6 @@ function fiveDayForecast () {
     var forecastHumidity= []
     var forecastIcons=[]
    
-    console.log(forecastIcons)
     for (i=0; i<=39; i+=7){
       var dates = moment.unix(data.list[i].dt).format("MMM Do, YYYY" );
       forecastDates.push(dates)
@@ -97,7 +98,6 @@ function fiveDayForecast () {
       forecastHumidity.push(humid)
 
       var icons="https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png"
-      console.log(icons)
       forecastIcons.push(icons)
     }
     
@@ -170,10 +170,35 @@ function clearField(){
   citySearch.value = ""
 }
 
+function saveInputs(){
+ localStorage.setItem('city', city.value)
+
+renderInputs()
+}
+
+function renderInputs(){
+  var savedCities =[]
+  var cityHistory = localStorage.getItem("city")
+  savedCities.push(cityHistory)
+
+  console.log(savedCities)
+
+ for (i=0;i<savedCities.length;i++){
+
+  var listItem = document.createElement("li")
+  listItem.textContent = savedCities[i]
+  listEl.appendChild(listItem)
+ }
+}
+
+function goToLastSearch(){
+  
+}
 
 searchButton.addEventListener("click", function(){
   getWeather();
   fiveDayForecast();
+  saveInputs();
   clearField();
  
     

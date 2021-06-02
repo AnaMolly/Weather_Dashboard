@@ -21,7 +21,23 @@ body,
     font-style: italic;
     text-align: right;
 }
+li{
+    list-style-type: none;
+    background-color: rgb(124, 124, 124);
+    padding:5px;
+    margin: 5px;
+    color: white;
+}
+li:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+}
 
+ul{
+    
+    padding: 5px;
+    
+}
 form{
     text-align: center;
     background-color: rgba(255,255,255,0.80);
