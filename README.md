@@ -5,11 +5,11 @@ This is a simple web application that renders the weather for any town, city or 
 It includes data for temperture, wind speed, humidity and UV Index.
 
 This weather dashboard was created using: 
--HTML
--CSS
--Bootstrap
--Moment.js 
--JavaScript. 
+- HTML
+- CSS
+- Bootstrap
+- Moment.js 
+- JavaScript 
 
 
 # Deployed URL
