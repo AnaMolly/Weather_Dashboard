@@ -18,6 +18,7 @@ https://anamolly.github.io/Weather_Dashboard/
 
 # Screenshot
 ![](./assets/images/Screenshot.png)
+
 ![](./assets/images/Screenshot2.png)
 
 
