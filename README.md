@@ -5,6 +5,13 @@
   ## Description
   This is a simple weather application that renders the weather for any town, city or country. It utilizes the API OpenWeatherApi to fetch the weather data, and returns today's weather forecast as well as the weather forecast for the next five days. It also saves the user's past searches until page is refreshed.
 
+  Technologies used:
+  - HTML
+  - CSS
+  - Bootstrap
+  - JavaScript
+  - Moment.js
+
   ## Deployed URL
   https://anamolly.github.io/Weather_Dashboard/
 
